@@ -21,8 +21,9 @@ allSeats.forEach(seats =>
                     document.getElementById('coupon-btn').removeAttribute('disabled');
                 }
                 
-                const newSeat = document.createElement('p');
-                newSeat.innerText = `You have selected ${seat.id}`;
+                const newSeat = document.createElement('div');
+                newSeat.classList.add('flex','justify-between');
+                newSeat.innerHTML = `<p>${seat.id}</p> <p>Economy</p> <p>550</p>`;
                 document.getElementById('selected').appendChild(newSeat);
 
                 let seatsLeft = parseInt(document.getElementById('remaining').innerText);
