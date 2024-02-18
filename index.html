@@ -99,7 +99,7 @@
             <div>
                 <p class="font-extrabold text-2xl pt-4">15% OFF</p>
                 <p class="font-bold pt-2">on your next purchase</p>
-                <p class="text-gray-100 pt-2 pb-4">use by January 2024</p>
+                <p class="text-slate-500 pt-2 pb-4">use by January 2024</p>
             </div>
             <img class="p-0" src="images/info-devider.png" width="25px"  alt="">
             <div>
@@ -111,10 +111,9 @@
             <div>
                 <p class="font-extrabold text-2xl pt-4">20% OFF</p>
                 <p class="font-bold pt-2">on your next purchase</p>
-                <p class="text-gray-100 pt-2 pb-4">use by January 2024</p>
+                <p class="text-slate-500 pt-2 pb-4">use by January 2024</p>
             </div>
-
-            <img src="images/info-devider.png" width="20px" height="20px" alt="">
+            <img class="p-0" src="images/info-devider.png" width="25px"  alt="">
             <div>
                 <p class="font-extrabold text-2xl pt-4">Couple 20</p>
                 <p class="text-slate-500 pt-2">Coupon Code</p>
@@ -122,15 +121,59 @@
         </div>
     </div>
 
-    <p class="text-center my-16 text-4xl font-extrabold" id = "buyTicket">Jalali Paribahan</p>
-    <p class="bg-green-200  text-center rounded-lg
-     text-green-700 m-auto p-2 flex w-36 gap-1">
-     <img src="images/seat-green.png" alt="">
-     <span class="text-green-800" id = "remaining">40</span> Seats left</p>
     
+    <!-- Bus Route -->
     
+    <p class="text-center mt-16 mb-4 text-4xl font-extrabold" id = "buyTicket">Greenline services</p>
+    <p class="text-xl font-lg text-center text-gray-400">Trust our service</p>
+    
+    <!-- Seats left -->
+
+
+    
+    <div class="lg:flex justify-around mt-4 mb-16 p-4  lg:mx-16 rounded-xl border-red-400 border">
+        <div class="left p-4  lg:w-2/3">
+            <div id = "first" class="lg:flex justify-between">
+                <div>                    
+                    <div class="flex justify-center items-center gap-2">
+                        <img src="images/bus-logo.png" alt="" width="60px">
+                        <p class="font-extrabold text-xl lg:text-2xl">Greenline services</p>
+                    </div>
+                    <p class="text-center">Trust our service</p>
+                </div>
+                <p class="bg-green-200  text-center rounded-lg text-green-500 px-4 py-2 lg:w-1/5 items-center  flex  gap-1">
+                    <img src="images/seat-green.png" alt="">
+                    <span class="text-green-500" id = "remaining">40</span> Seats left
+                </p>
+            </div>
+            <div id = "second" class=" flex justify-between pt-3">
+                <p>Route</p>
+                <p>Dhaka-Sylhet</p>
+            </div>
+            <div id = "third" class="py-4 flex justify-between">
+                <p>Departure Time</p>
+                <p class="font-extrabold text-gray-500">9:00 PM</p>
+            </div>
+            <div id = "last" class="lg:flex justify-between">
+                <button class="bg-gray-100 rounded-xl p-4 my-1">Borading-Point - Laxmipur</button>
+                <button class="bg-gray-100 rounded-xl p-4 my-1">Dropping Point - Bagura</button>
+                <button class="bg-gray-100 rounded-xl p-4 my-1">Est.time - 11 hours</button>
+            </div>
+        </div>
+
+        <!-- <img src="images/info-devider.png" alt=""> -->
+
+        <div class="right lg:flex  items-center justify-center  w-1/3">
+            <img src="images/fare.png" alt="">
+            <p>550 per seat</p>
+        </div>
+
+    </div>
+
+     <!--Seat selection  -->
+
     <p class="pt-16 font-extrabold text-2xl text-center">Select Your Seat</p>
-    <div class="lg:flex justify-around mt-4 mb-16 border-2 lg:mx-16 rounded-xl bg-gray-50">
+    <div class="lg:flex justify-around mt-4 mb-16 border-2 lg:mx-16 rounded-xl ">
         <div class="flex justify-center items-center gap-8">
             <p class="text-gray-500 my-4"><img src="images/seat-gray.png" alt="">Available</p>
             <p class="text-green-500"><img src="images/seat-green-filled.png" alt="">Selected</p>
@@ -191,7 +234,7 @@
                     <p id = "selected"></p>
                 </div>
 
-                <p>--------------------------------------------------------------------------</p>
+                <!-- <p>--------------------------------------------------------------------------</p> -->
                 <div class="flex justify-between w-full items-center">
                     <p class="font-bold my-4">Total</p>  
                     <p id = "total">0</p>
