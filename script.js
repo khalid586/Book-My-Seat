@@ -3,30 +3,7 @@ const allSeats = document.querySelectorAll('.seats');
 
 let grandTotal = 0;
 
-document.getElementById('inputfield').addEventListener('keyup',function(event){
-    if(event.target.value == 'NEW15'){
-        if( Applied == false){
-            document.getElementById('coupon-btn').removeAttribute('disabled');
-            coupon = 'NEW15';
-        }
-        else{
-            alert("Don't act smart.You have already used a coupon!")
-        }
-    }
-    else if(event.target.value == 'Couple 20'){
-        if(Applied == false){
-            document.getElementById('coupon-btn').removeAttribute('disabled');
-            coupon = 'Couple 20';
-        }
-        else{
-            alert("Don't act smart.You have already used a coupon!")
-        }
-    }
-    else{
-        document.getElementById('coupon-btn').setAttribute('disabled','true');
-    }
     // console.log(event.target.value);
-})
 
 allSeats.forEach(seats =>
     seats.addEventListener('click',() =>{
@@ -38,6 +15,11 @@ allSeats.forEach(seats =>
                 seat.classList.add('bg-green-500','text-white');
                 ++count;
                 console.log(count);
+                document.getElementById('seatTaken').innerText = count;
+
+                if(count == 4){
+                    document.getElementById('coupon-btn').removeAttribute('disabled');
+                }
                 
                 const newSeat = document.createElement('p');
                 newSeat.innerText = `You have selected ${seat.id}`;
@@ -60,19 +42,43 @@ allSeats.forEach(seats =>
     })
 )
 
+document.getElementById('inputfield').addEventListener('keyup',(event) =>{
+    coupon = event.target.value;
+    console.log(coupon);
+
+    if(Applied){
+        alert("Don't act smart! You've already applied coupon code!")
+    }
+})
+
 document.getElementById('coupon-btn').addEventListener('click',() =>{
-    if(coupon == "NEW15"){
-        grandTotal = grandTotal -( (grandTotal * 15)/100);
-    }
-    else{
-        grandTotal = grandTotal - ( (grandTotal * 20)/100);
-    }
-    
-    document.getElementById('coupon-btn').setAttribute('disabled','true');
-    document.getElementById('inputfield').value = '';
+        if(coupon == "NEW15" || coupon == "Couple 20"){        
+            if(coupon == "NEW15"){
+                discount = ( (grandTotal * 15)/100)
+                grandTotal = grandTotal - discount;
 
-    Applied = true;
+                Discount = document.createElement('p');
+                Discount.innerText = `You have got a discount of ${discount}`
+                document.getElementById('coupon').appendChild(Discount);
 
-    document.getElementById('grandTotal').innerText = grandTotal;
+            }
+            else{
+                discount = ( (grandTotal * 20)/100);
+                grandTotal = grandTotal - discount;
+
+                Discount = document.createElement('p');
+                Discount.innerText = `You have got a discount of ${discount}`
+                document.getElementById('coupon').appendChild(Discount);
+            }
+            
+            document.getElementById('Coupon-container').classList.add('hidden');
+            Applied = true;
+        
+            document.getElementById('grandTotal').innerText = grandTotal;
+        }else{
+            document.getElementById('inputfield').value = '';
+            alert('Enter a valid coupon!')
+        }
+
 })
 
