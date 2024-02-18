@@ -17,8 +17,9 @@ allSeats.forEach(seats =>
                 console.log(count);
                 document.getElementById('seatTaken').innerText = count;
 
-                if(count == 4){
+                if(count){
                     document.getElementById('coupon-btn').removeAttribute('disabled');
+                    document.getElementById('confirmation').removeAttribute('disabled');
                 }
                 
                 const newSeat = document.createElement('div');
