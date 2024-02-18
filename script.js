@@ -69,7 +69,7 @@ document.getElementById('coupon-btn').addEventListener('click',() =>{
                 grandTotal = grandTotal - discount;
 
                 Discount = document.createElement('p');
-                Discount.innerText = `You have got a discount of ${discount}`
+                Discount.innerText = `You have got a discount of ${discount} Taka`
                 document.getElementById('coupon').appendChild(Discount);
             }
             
