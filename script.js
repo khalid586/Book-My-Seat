@@ -10,7 +10,10 @@ allSeats.forEach(seats =>
         const seat = document.getElementById(seats.id);
 
         if(count < 4){
-            if(seat.classList.contains('bg-slate-200')){
+            if(Applied){
+                alert("You've already applied coupon. Can't select anymore seats!")
+            }
+            else if(seat.classList.contains('bg-slate-200')){
                 seat.classList.remove('bg-slate-200');
                 seat.classList.add('bg-green-500','text-white');
                 ++count;
@@ -62,17 +65,17 @@ document.getElementById('coupon-btn').addEventListener('click',() =>{
                 Discount = document.createElement('p');
                 Discount.innerText = `You have got a discount of ${discount}`
                 document.getElementById('coupon').appendChild(Discount);
-
             }
             else{
                 discount = ( (grandTotal * 20)/100);
                 grandTotal = grandTotal - discount;
-
+                
                 Discount = document.createElement('p');
                 Discount.innerText = `You have got a discount of ${discount} Taka`
                 document.getElementById('coupon').appendChild(Discount);
             }
             
+            Applied = true;
             document.getElementById('Coupon-container').classList.add('hidden');
             Applied = true;
         
