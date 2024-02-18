@@ -1,2 +1,2 @@
 # Book-My-Seat
-A Bus ticket booking application using tailwind and javascript
+A Bus ticket booking application developed  using tailwind and javascript
