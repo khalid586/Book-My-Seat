@@ -13,7 +13,7 @@ document.getElementById('inputfield').addEventListener('keyup',function(event){
             alert("Don't act smart.You have already used a coupon!")
         }
     }
-    else if(event.target.value == 'Couple 20' && Applied == false){
+    else if(event.target.value == 'Couple 20'){
         if(Applied == false){
             document.getElementById('coupon-btn').removeAttribute('disabled');
             coupon = 'Couple 20';
@@ -62,12 +62,13 @@ allSeats.forEach(seats =>
 
 document.getElementById('coupon-btn').addEventListener('click',() =>{
     if(coupon == "NEW15"){
-        grandTotal = total -( (total * 15)/100);
+        grandTotal = grandTotal -( (grandTotal * 15)/100);
     }
     else{
-        grandTotal = total - ( (total * 20)/100);
+        grandTotal = grandTotal - ( (grandTotal * 20)/100);
     }
 
+    document.getElementById('inputfield').value = '';
     Applied = true;
 
     document.getElementById('grandTotal').innerText = grandTotal;
