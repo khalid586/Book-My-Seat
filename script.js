@@ -11,22 +11,31 @@ document.getElementById('inputfield').addEventListener('keyup',function(event){
     else{
         document.getElementById('delete-btn').setAttribute('disabled','true');
     }
-    console.log(event.target.value);
+    // console.log(event.target.value);
 })
 
 allSeats.forEach(seats =>
     seats.addEventListener('click',() =>{
         const seat = document.getElementById(seats.id);
-        console.log(seat.id);
 
-        if(seat.classList.contains('bg-slate-200')){
-            seat.classList.remove('bg-slate-200');
-            seat.classList.add('bg-green-500','text-white');
-            ++count;
-            
-            const newSeat = document.createElement('p');
-            newSeat.innerText = `You have selected ${seat.id}`;
-            document.getElementById('selected').appendChild(newSeat);
+        if(count < 4){
+            if(seat.classList.contains('bg-slate-200')){
+                seat.classList.remove('bg-slate-200');
+                seat.classList.add('bg-green-500','text-white');
+                ++count;
+                console.log(count);
+                
+                const newSeat = document.createElement('p');
+                newSeat.innerText = `You have selected ${seat.id}`;
+                document.getElementById('selected').appendChild(newSeat);
+
+                let seatsLeft = parseInt(document.getElementById('remaining').innerText);
+                seatsLeft --;
+                document.getElementById('remaining').innerText = seatsLeft;
+            }
+        }
+        else{
+            alert("You can't book more than 4 seats");
         }
     })
 )
