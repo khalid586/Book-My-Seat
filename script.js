@@ -67,8 +67,10 @@ document.getElementById('coupon-btn').addEventListener('click',() =>{
     else{
         grandTotal = grandTotal - ( (grandTotal * 20)/100);
     }
-
+    
+    document.getElementById('coupon-btn').setAttribute('disabled','true');
     document.getElementById('inputfield').value = '';
+
     Applied = true;
 
     document.getElementById('grandTotal').innerText = grandTotal;
