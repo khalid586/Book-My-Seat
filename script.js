@@ -1,4 +1,4 @@
-let count = 0 , remaining = 40;
+let count = 0 , remaining = 40 , total = 0;
 const allSeats = document.querySelectorAll('.seats');
 
 document.getElementById('inputfield').addEventListener('keyup',function(event){
@@ -32,6 +32,8 @@ allSeats.forEach(seats =>
                 let seatsLeft = parseInt(document.getElementById('remaining').innerText);
                 seatsLeft --;
                 document.getElementById('remaining').innerText = seatsLeft;
+
+                document.getElementById('total').innerText = total + 550 * count;
             }
         }
         else{
