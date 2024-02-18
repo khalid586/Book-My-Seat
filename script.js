@@ -1,15 +1,29 @@
-let count = 0 , remaining = 40 , total = 0;
+let count = 0 , remaining = 40 , total = 0 , Applied = false , coupon = '';
 const allSeats = document.querySelectorAll('.seats');
+
+let grandTotal = 0;
 
 document.getElementById('inputfield').addEventListener('keyup',function(event){
     if(event.target.value == 'NEW15'){
-        document.getElementById('delete-btn').removeAttribute('disabled');
-        
-    }else if(event.target.value == 'Couple 20'){
-        document.getElementById('delete-btn').removeAttribute('disabled');
+        if( Applied == false){
+            document.getElementById('coupon-btn').removeAttribute('disabled');
+            coupon = 'NEW15';
+        }
+        else{
+            alert("Don't act smart.You have already used a coupon!")
+        }
+    }
+    else if(event.target.value == 'Couple 20' && Applied == false){
+        if(Applied == false){
+            document.getElementById('coupon-btn').removeAttribute('disabled');
+            coupon = 'Couple 20';
+        }
+        else{
+            alert("Don't act smart.You have already used a coupon!")
+        }
     }
     else{
-        document.getElementById('delete-btn').setAttribute('disabled','true');
+        document.getElementById('coupon-btn').setAttribute('disabled','true');
     }
     // console.log(event.target.value);
 })
@@ -33,7 +47,11 @@ allSeats.forEach(seats =>
                 seatsLeft --;
                 document.getElementById('remaining').innerText = seatsLeft;
 
-                document.getElementById('total').innerText = total + 550 * count;
+                total = 550 * count;
+                document.getElementById('total').innerText = 550 * count;
+                grandTotal = total;
+
+                document.getElementById('grandTotal').innerText = total;
             }
         }
         else{
@@ -41,4 +59,17 @@ allSeats.forEach(seats =>
         }
     })
 )
+
+document.getElementById('coupon-btn').addEventListener('click',() =>{
+    if(coupon == "NEW15"){
+        grandTotal = total -( (total * 15)/100);
+    }
+    else{
+        grandTotal = total - ( (total * 20)/100);
+    }
+
+    Applied = true;
+
+    document.getElementById('grandTotal').innerText = grandTotal;
+})
 
