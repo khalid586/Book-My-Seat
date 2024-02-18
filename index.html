@@ -63,7 +63,7 @@
         <div class="text-center text-white ">
             <p class="text-lg mb-6">Travel to your favourite place and book your seat with</p>
             <h1 class="text-4xl font-extrabold mb-8 text-green-500">Book My Seat</h1>
-            <a href="#" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Buy Ticket</a>
+            <a href="#buyTicket" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Buy Ticket</a>
         </div>
     </div>
 
@@ -76,8 +76,8 @@
         </div>
         <div class="flex border-b-4 rounded-xl shadow p-8 border-green-500 m-4 gap-4 ">
             <img width="50px" src="images/ticket-cupon.png" align = "center" alt=""> 
-            <p class="text-center font-extrabold text-2xl "> 80K+ <br> 
-                <span class="font-medium text-xl">Rental partners</span>
+            <p class="text-center font-extrabold text-2xl "> 1.7Lacs <br> 
+                <span class="font-medium text-xl">Ticket Sold</span>
             </p>
         </div>
         <div class="flex border-b-4 rounded-xl shadow p-8 border-green-500 m-4 gap-4">
@@ -91,10 +91,50 @@
     <div>
 
     </div>
+
+        <!-- OFFER -->
+    <p class="font-extrabold text-4xl text-center mt-8 lg:mt-32">Best Offers  for you!</p>
+    <div class="lg:flex justify-around my-8 py-8 lg:gap-96">
+        <div class="flex justify-around my-4 mx-2 bg-[#FFBF0F] gap-20 p-8 rounded-xl">
+            <div>
+                <p class="font-extrabold text-2xl">15% OFF</p>
+                <p class="font-bold pt-2">on your next purchase</p>
+                <p class="text-gray-100 pt-2">use by January 2024</p>
+            </div>
+            <img src="images/info-devider.png" width="20px" height="20px" alt="">
+            <div>
+                <p class="font-extrabold text-2xl">NEW15</p>
+                <p class="text-slate-500 pt-2">Coupon Code</p>
+            </div>
+        </div>
+        <div class="flex justify-around my-4 mx-2 bg-[#F78C9C] gap-20 p-8 rounded-xl">
+            <div>
+                <p class="font-extrabold text-2xl">20% OFF</p>
+                <p class="font-bold pt-2">on your next purchase</p>
+                <p class="text-gray-100 pt-2">use by January 2024</p>
+            </div>
+
+            <img src="images/info-devider.png" width="20px" height="20px" alt="">
+            <div>
+                <p class="font-extrabold text-2xl">Couple 20</p>
+                <p class="text-slate-500 pt-2">Coupon Code</p>
+            </div>
+        </div>
+    </div>
+
     <p class="text-center my-16 text-4xl font-extrabold" id = "buyTicket">Jalali Paribahan</p>
-    <p class="bg-green-200 w-48 rounded-lg text-green-700 m-auto p-2">Seats remaining: <span class="text-green-800" id = "remaining">40</span></p>
+    <p class="bg-green-200  text-center rounded-lg
+     text-green-700 m-auto p-2 flex w-36 gap-1">
+     <img src="images/seat-green.png" alt="">
+     <span class="text-green-800" id = "remaining">40</span> Seats left</p>
+    
+    
     <p class="px-40 pt-4 font-extrabold text-2xl">Select Your Seat</p>
-    <div class="lg:flex justify-around my-16 border-2 lg:mx-16 rounded-lg">
+    <div class="lg:flex justify-around mt-4 mb-16 border-2 lg:mx-16 rounded-xl bg-gray-50">
+        <div class="flex justify-center items-center gap-8">
+            <p class="text-gray-500 my-4"><img src="images/seat-gray.png" alt="">Available</p>
+            <p class="text-green-500"><img src="images/seat-green-filled.png" alt="">Selected</p>
+        </div>
         <div class="grid grid-cols-4 lg:w-1/3">
             <button class = "seats bg-slate-200 rounded-lg m-2 lg:m-4 p-2 text-center" id = "A1">A1</button>
             <button class = "seats bg-slate-200 rounded-lg m-2 lg:m-4 p-2 text-center" id = "A2">A2</button>
@@ -139,7 +179,7 @@
             
         </div>
 
-        <img class="hidden" src="images/info-devider.png" alt="">
+        <img class="hidden lg:block" src="images/info-devider.png" alt="">
 
         <div class=" pt-8 px-16 rounded-xl">
             <div class="flex justify-between font-bold">
@@ -167,6 +207,83 @@
         </div>
 
     </div>
+
+
+    <!-- footer -->
+
+<footer class="bg-white dark:bg-gray-900">
+    <div class="mx-auto w-full max-w-screen-xl">
+        <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <li class="mb-4">
+                        <a href="#" class=" hover:underline">About</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Careers</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Brand Center</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Discord Server</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Twitter</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Facebook</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Privacy Policy</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Licensing</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">iOS</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Android</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Windows</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">MacOS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
     
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
