@@ -35,7 +35,9 @@ allSeats.forEach(seats =>
             }
         }
         else{
-            alert("You can't book more than 4 seats");
+            if(seat.classList.contains('bg-white')){
+                alert("You can't book more than 4 seats");
+            }
         }
     })
 )
