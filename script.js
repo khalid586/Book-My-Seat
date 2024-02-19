@@ -63,7 +63,8 @@ document.getElementById('coupon-btn').addEventListener('click',() =>{
                 grandTotal = grandTotal - discount;
 
                 Discount = document.createElement('p');
-                Discount.innerText = `You have got a discount of ${discount}`
+                Discount.innerText = `You have got a discount of ${discount} Taka`;
+                Discount.classList.add('text-green-500','font-semibold','text-xl');
                 document.getElementById('coupon').appendChild(Discount);
             }
             else{
@@ -71,7 +72,8 @@ document.getElementById('coupon-btn').addEventListener('click',() =>{
                 grandTotal = grandTotal - discount;
                 
                 Discount = document.createElement('p');
-                Discount.innerText = `You have got a discount of ${discount} Taka`
+                Discount.innerText = `You have got a discount of ${discount} Taka`;
+                Discount.classList.add('text-green-500','font-semibold','text-xl');
                 document.getElementById('coupon').appendChild(Discount);
             }
             
