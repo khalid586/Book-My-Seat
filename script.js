@@ -1,20 +1,28 @@
 let count = 0 , remaining = 40 , total = 0 , Applied = false , coupon = '';
 const allSeats = document.querySelectorAll('.seats');
 
-let grandTotal = 0;
+
+let confirmed = false, grandTotal = 0;
+
+document.getElementById('confirmation').addEventListener('click', () => {
+    confirmed = true;
+})
 
 allSeats.forEach(seats =>
     seats.addEventListener('click',() =>{
         const seat = document.getElementById(seats.id);
 
-        if(Applied){
+        if(confirmed){
+            alert("You can't change your selection once you have made a reservation");
+        }
+        else if(Applied){
             alert("You've applied the coupon already! Can't change seat choice!")
         }
 
         else if(seat.classList.contains('bg-white')){
             if(count < 4) {
                 seat.classList.remove('bg-white');
-                seat.classList.add('bg-green-500','text-white');
+                seat.classList.add('bg-[#1DD100]','text-white');
                 ++count;
                 console.log(count);
                 document.getElementById('seatTaken').innerText = count;
@@ -45,7 +53,7 @@ allSeats.forEach(seats =>
             }
         }else{
             seat.classList.add('bg-white');
-            seat.classList.remove('bg-green-500','text-white');
+            seat.classList.remove('bg-[#1DD100]','text-white');
             --count;
             document.getElementById('seatTaken').innerText = count;
 
@@ -85,7 +93,7 @@ document.getElementById('coupon-btn').addEventListener('click',() =>{
 
             Discount = document.createElement('p');
             Discount.innerText = `You have got a discount of ${discount} Taka`;
-            Discount.classList.add('text-green-500','font-semibold','text-xl');
+            Discount.classList.add('text-[#1DD100]','font-semibold','text-xl');
             document.getElementById('coupon').appendChild(Discount);
             
             document.getElementById('Coupon-container').classList.add('hidden');
