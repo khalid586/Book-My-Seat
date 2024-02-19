@@ -59,7 +59,7 @@ document.getElementById('inputfield').addEventListener('keyup',(event) =>{
 document.getElementById('coupon-btn').addEventListener('click',() =>{
         if(coupon == "NEW15" || coupon == "Couple 20"){        
             if(coupon == "NEW15"){
-                discount = ( (grandTotal * 15)/100)
+                discount = Math.round(( (grandTotal * 15)/100));
                 grandTotal = grandTotal - discount;
 
                 Discount = document.createElement('p');
