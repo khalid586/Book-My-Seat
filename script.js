@@ -3,27 +3,20 @@ const allSeats = document.querySelectorAll('.seats');
 
 let grandTotal = 0;
 
-    // console.log(event.target.value);
-
 allSeats.forEach(seats =>
     seats.addEventListener('click',() =>{
         const seat = document.getElementById(seats.id);
 
         if(count < 4){
-            if(Applied){
-                alert("You've already applied coupon. Can't select anymore seats!")
-            }
-            else if(seat.classList.contains('bg-white')){
+            if(seat.classList.contains('bg-white')){
                 seat.classList.remove('bg-white');
                 seat.classList.add('bg-green-500','text-white');
                 ++count;
                 console.log(count);
                 document.getElementById('seatTaken').innerText = count;
 
-                if(count){
-                    document.getElementById('coupon-btn').removeAttribute('disabled');
-                    document.getElementById('confirmation').removeAttribute('disabled');
-                }
+                document.getElementById('coupon-btn').removeAttribute('disabled');
+                document.getElementById('confirmation').removeAttribute('disabled');
                 
                 const newSeat = document.createElement('div');
                 newSeat.classList.add('flex','justify-between');
@@ -34,11 +27,11 @@ allSeats.forEach(seats =>
                 seatsLeft --;
                 document.getElementById('remaining').innerText = seatsLeft;
 
-                total = 550 * count;
-                document.getElementById('total').innerText = 550 * count;
-                grandTotal = total;
+                total += 550;
+                document.getElementById('total').innerText = total;
+                grandTotal += 550;
 
-                document.getElementById('grandTotal').innerText = total;
+                document.getElementById('grandTotal').innerText = grandTotal;
             }
         }
         else{
@@ -50,37 +43,26 @@ allSeats.forEach(seats =>
 document.getElementById('inputfield').addEventListener('keyup',(event) =>{
     coupon = event.target.value;
     console.log(coupon);
-
-    if(Applied){
-        alert("Don't act smart! You've already applied coupon code!")
-    }
 })
 
 document.getElementById('coupon-btn').addEventListener('click',() =>{
         if(coupon == "NEW15" || coupon == "Couple 20"){        
             if(coupon == "NEW15"){
-                discount = Math.round(( (grandTotal * 15)/100));
-                grandTotal = grandTotal - discount;
-
-                Discount = document.createElement('p');
-                Discount.innerText = `You have got a discount of ${discount} Taka`;
-                Discount.classList.add('text-green-500','font-semibold','text-xl');
-                document.getElementById('coupon').appendChild(Discount);
+                discount = Math.round((grandTotal * 15)/100);
             }
             else{
-                discount = ( (grandTotal * 20)/100);
-                grandTotal = grandTotal - discount;
-                
-                Discount = document.createElement('p');
-                Discount.innerText = `You have got a discount of ${discount} Taka`;
-                Discount.classList.add('text-green-500','font-semibold','text-xl');
-                document.getElementById('coupon').appendChild(Discount);
+                discount = Math.round((grandTotal * 20)/100);
             }
+
+            Discount = document.createElement('p');
+            Discount.innerText = `You have got a discount of ${discount} Taka`;
+            Discount.classList.add('text-green-500','font-semibold','text-xl');
+            document.getElementById('coupon').appendChild(Discount);
             
-            Applied = true;
             document.getElementById('Coupon-container').classList.add('hidden');
             Applied = true;
-        
+            
+            grandTotal = grandTotal - discount;
             document.getElementById('grandTotal').innerText = grandTotal;
         }else{
             document.getElementById('inputfield').value = '';
