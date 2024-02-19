@@ -7,8 +7,12 @@ allSeats.forEach(seats =>
     seats.addEventListener('click',() =>{
         const seat = document.getElementById(seats.id);
 
-        if(count < 4){
-            if(seat.classList.contains('bg-white')){
+        if(Applied){
+            alert("You've applied the coupon already! Can't change seat choice!")
+        }
+
+        else if(seat.classList.contains('bg-white')){
+            if(count < 4) {
                 seat.classList.remove('bg-white');
                 seat.classList.add('bg-green-500','text-white');
                 ++count;
@@ -20,6 +24,7 @@ allSeats.forEach(seats =>
                 
                 const newSeat = document.createElement('div');
                 newSeat.classList.add('flex','justify-between');
+                newSeat.setAttribute('id',`${seats.id}-info`) ;
                 newSeat.innerHTML = `<p>${seat.id}</p> <p>Economy</p> <p>550</p>`;
                 document.getElementById('selected').appendChild(newSeat);
 
@@ -33,11 +38,33 @@ allSeats.forEach(seats =>
 
                 document.getElementById('grandTotal').innerText = grandTotal;
             }
-        }
-        else{
-            if(seat.classList.contains('bg-white')){
-                alert("You can't book more than 4 seats");
+            else{
+                if(seat.classList.contains('bg-white')){
+                    alert("You can't book more than 4 seats");
+                }
             }
+        }else{
+            seat.classList.add('bg-white');
+            seat.classList.remove('bg-green-500','text-white');
+            --count;
+            document.getElementById('seatTaken').innerText = count;
+
+            if(count == 0){
+                document.getElementById('coupon-btn').setAttribute('disabled','true');
+                document.getElementById('confirmation').setAttribute('disabled','true');
+            }
+
+            let seatsLeft = parseInt(document.getElementById('remaining').innerText);
+            seatsLeft++;
+            document.getElementById('remaining').innerText = seatsLeft;
+
+            total -= 550;
+            document.getElementById('total').innerText = total;
+            grandTotal -= 550;
+
+            document.getElementById('grandTotal').innerText = grandTotal;
+        
+            document.getElementById(`${seat.id}-info`).remove();
         }
     })
 )
