@@ -13,8 +13,8 @@ allSeats.forEach(seats =>
             if(Applied){
                 alert("You've already applied coupon. Can't select anymore seats!")
             }
-            else if(seat.classList.contains('bg-slate-200')){
-                seat.classList.remove('bg-slate-200');
+            else if(seat.classList.contains('bg-white')){
+                seat.classList.remove('bg-white');
                 seat.classList.add('bg-green-500','text-white');
                 ++count;
                 console.log(count);
