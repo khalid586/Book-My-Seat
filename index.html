@@ -241,7 +241,7 @@
 
         <div class="rightOne lg:py-8 lg:px-16 mx-4 mt-4">
             <p class="text-center font-extrabold text-4xl pb-8 pt-4">Seat Information</p>
-            <div class="lg:py-8 lg:my-16 p-4 lg:px-8 rounded-xl bg-slate-50">
+            <div class="lg:py-8  p-4 lg:px-8 rounded-xl bg-slate-50">
                 <div class="flex justify-between font-bold text-xl">
                         <p>Seat <sup id = "seatTaken" class="bg-[#1DD100] text-white px-1 rounded-full">0</sup></p>
                         <p>Class</p>
@@ -260,9 +260,12 @@
                 <br>
                 <p id = "coupon"></p>
                 
-                <div id = "Coupon-container" class=" gap-2  w-full p-4  rounded-lg bg-white flex">
-                    <input type="text" id = "inputfield" class="my-4 p-2 w-full rounded-xl text-center border border-gray-100" placeholder="Have any coupon?">
-                    <button id = "coupon-btn" disabled class=" disabled:opacity-25 my-4 px-4  rounded-xl  bg-[#1DD100] font-bold text-white">Apply</button> 
+                <div id = "Coupon-container" class=" bg-white">
+                    <p class="pt-4 text-center text-gray-300 text-sm font-semibold">Apply NEW15 / Couple 20</p>
+                    <div class="flex  gap-2  w-full p-4 py-1 rounded-lg">
+                        <input type="text" id = "inputfield" class="my-4 p-2 w-full rounded-xl text-center border border-gray-100" placeholder="Have any coupon?">
+                        <button id = "coupon-btn" disabled class=" disabled:opacity-25 my-4 px-4  rounded-xl  bg-[#1DD100] font-bold text-white">Apply</button> 
+                    </div>
 
                 </div>
                 
@@ -273,7 +276,17 @@
                 
             </div>
 
-            <div class=" text-center my-8">
+            <!-- <p class="text-center lg:mt-8 font-extrabold text-2xl pb-8 pt-4">Passenger Information</p> -->
+
+            <p class="font-bold text-xl mt-12 ">Passenger Name*</p>
+                <input class="rounded-xl mt-2 w-full" type="text" id = "passenger_name" placeholder="Enter your name">
+            <p class="font-bold text-xl mt-6">Passenger Phone*</p>
+                <input class="rounded-xl mt-2 w-full" type="number" id = "passenger_phone" placeholder="Enter your phone number">
+
+            <p class="mt-4">Thanks <span id = "name_text" class="font-bold text-green-500"></span> for choosing us</p>
+            
+            <div class=" text-center lg:my-16 my-8">
+                <p class="text-sm text-gray-500 mb-3">Select a seat , provide your name and phone number(11 digit) to confirm</p>
                 <button class="bg-[#1DD100] px-16 py-4 m-auto disabled:opacity-30 rounded-xl text-white" disabled id = "confirmation" data-modal-target="popup-modal" data-modal-toggle="popup-modal" >Confirm</button>
             </div>
         </div>

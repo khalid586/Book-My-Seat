@@ -3,11 +3,39 @@ const allSeats = document.querySelectorAll('.seats');
 
 
 let confirmed = false, grandTotal = 0;
+let name = '' , phone = '1';
+
+
+
+function check(){
+
+    if(name.length && phone.length == 11 && count && !confirmed){
+        document.getElementById('confirmation').removeAttribute('disabled');
+    }else{
+        document.getElementById('confirmation').setAttribute('disabled','true');
+    }
+}
+
+document.getElementById('passenger_name').addEventListener('keyup',(event)=>{
+    name = event.target.value;
+    check();
+    document.getElementById('name_text').innerText = name;
+})
+document.getElementById('passenger_phone').addEventListener('keyup',(event)=>{
+    phone = event.target.value;
+    check();
+
+    // if(typeof phone != 'number'){
+    //     alert('Provide a valid phone number!')
+    // }
+})
+
 
 document.getElementById('confirmation').addEventListener('click', () => {
     confirmed = true;
     document.getElementById('coupon-btn').setAttribute('disabled','true');
     document.getElementById('confirmation').setAttribute('disabled','true');
+
 })
 
 allSeats.forEach(seats =>
@@ -30,8 +58,10 @@ allSeats.forEach(seats =>
                 document.getElementById('seatTaken').innerText = count;
 
                 document.getElementById('coupon-btn').removeAttribute('disabled');
-                document.getElementById('confirmation').removeAttribute('disabled');
+                // document.getElementById('confirmation').removeAttribute('disabled');
                 
+                check();
+
                 const newSeat = document.createElement('div');
                 newSeat.classList.add('flex','justify-between');
                 newSeat.setAttribute('id',`${seats.id}-info`) ;
@@ -63,6 +93,7 @@ allSeats.forEach(seats =>
                 document.getElementById('coupon-btn').setAttribute('disabled','true');
                 document.getElementById('confirmation').setAttribute('disabled','true');
             }
+            check();
 
             let seatsLeft = parseInt(document.getElementById('remaining').innerText);
             seatsLeft++;
