@@ -9,7 +9,7 @@ let name = '' , phone = '1';
 
 function check(){
 
-    if(name.length && phone.length == 11 && count){
+    if(name.length && phone.length == 11 && count && !confirmed){
         document.getElementById('confirmation').removeAttribute('disabled');
     }else{
         document.getElementById('confirmation').setAttribute('disabled','true');
