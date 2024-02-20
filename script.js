@@ -15,7 +15,7 @@ allSeats.forEach(seats =>
         const seat = document.getElementById(seats.id);
 
         if(confirmed){
-            alert("You can't change your selection once you have made a reservation");
+            alert("You can't change your selection once you have confirmed your reservation");
         }
         else if(Applied){
             alert("You've applied the coupon already! Can't change seat choice!")
