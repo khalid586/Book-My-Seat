@@ -8,6 +8,29 @@ let name = '' , phone = '1';
 
 
 function check(){
+    if(name.length  && !confirmed){
+        document.getElementById('name_done').classList.add('text-green-500');
+        document.getElementById('name_done').classList.remove('text-red-500');
+    }else{
+        document.getElementById('name_done').classList.remove('text-green-500');
+        document.getElementById('name_done').classList.add('text-red-500');
+    }
+
+    if(phone.length == 11 && !confirmed){
+        document.getElementById('phone_done').classList.add('text-green-500');
+        document.getElementById('phone_done').classList.remove('text-red-500');
+    }else{
+        document.getElementById('phone_done').classList.remove('text-green-500');
+        document.getElementById('phone_done').classList.add('text-red-500');
+    }
+    if(count && !confirmed){
+        document.getElementById('seat_done').classList.add('text-green-500');
+        document.getElementById('seat_done').classList.remove('text-red-500');
+    }else{
+        document.getElementById('seat_done').classList.remove('text-green-500');
+        document.getElementById('seat_done').classList.add('text-red-500');
+    }
+
     if(name.length && phone.length == 11 && count && !confirmed){
         document.getElementById('confirmation').removeAttribute('disabled');
     }else{
@@ -44,6 +67,15 @@ document.getElementById('confirmation').addEventListener('click', () => {
     confirmed = true;
     document.getElementById('coupon-btn').setAttribute('disabled','true');
     document.getElementById('confirmation').setAttribute('disabled','true');
+
+    document.getElementById('phone_done').classList.remove('text-green-500');
+    document.getElementById('phone_done').classList.add('text-red-500');
+
+    document.getElementById('seat_done').classList.remove('text-green-500');
+    document.getElementById('seat_done').classList.add('text-red-500');
+
+    document.getElementById('name_done').classList.remove('text-green-500');
+    document.getElementById('name_done').classList.add('text-red-500');
 
 })
 
