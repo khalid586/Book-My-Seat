@@ -45,13 +45,20 @@ document.getElementById('passenger_name').addEventListener('keyup',(event)=>{
 })
 document.getElementById('passenger_phone').addEventListener('keyup',(event)=>{
     phone = event.target.value;
+
+    const digit =  document.getElementById('valid_number');
+    
+    if(phone.length){
+        digit.innerText = `${phone.length} digit`;
+    }else{
+        digit.innerText = '';
+    }
+    
     if(phone.length == 11){
-        document.getElementById('valid_number').innerText = `${phone.length} digit`;
         document.getElementById('passenger_phone').classList.remove('text-red-500');
         document.getElementById('passenger_phone').classList.add('text-green-500');
     }
     else{
-        document.getElementById('valid_number').innerText = `${phone.length} digit`;
         document.getElementById('passenger_phone').classList.add('text-red-500');
         document.getElementById('passenger_phone').classList.remove('text-green-500');
     }
