@@ -8,7 +8,6 @@ let name = '' , phone = '1';
 
 
 function check(){
-
     if(name.length && phone.length == 11 && count && !confirmed){
         document.getElementById('confirmation').removeAttribute('disabled');
     }else{
@@ -23,6 +22,16 @@ document.getElementById('passenger_name').addEventListener('keyup',(event)=>{
 })
 document.getElementById('passenger_phone').addEventListener('keyup',(event)=>{
     phone = event.target.value;
+    if(phone.length == 11){
+        document.getElementById('valid_number').innerText = `${phone.length} digit`;
+        document.getElementById('passenger_phone').classList.remove('text-red-500');
+        document.getElementById('passenger_phone').classList.add('text-green-500');
+    }
+    else{
+        document.getElementById('valid_number').innerText = `${phone.length} digit`;
+        document.getElementById('passenger_phone').classList.add('text-red-500');
+        document.getElementById('passenger_phone').classList.remove('text-green-500');
+    }
     check();
 
     // if(typeof phone != 'number'){

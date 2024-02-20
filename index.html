@@ -281,13 +281,14 @@
             <p class="font-bold text-xl mt-12 ">Passenger Name*</p>
                 <input class="rounded-xl mt-2 w-full" type="text" id = "passenger_name" placeholder="Enter your name">
             <p class="font-bold text-xl mt-6">Passenger Phone*</p>
-                <input class="rounded-xl mt-2 w-full" type="number" id = "passenger_phone" placeholder="Enter your phone number">
+                <p id = "valid_number"></p>
+                <input class="rounded-xl mt-2 w-full font-bold" type="number" id = "passenger_phone" placeholder="Enter your phone number">
 
             <p class="mt-4">Thanks <span id = "name_text" class="font-bold text-green-500"></span> for choosing us</p>
             
-            <div class=" text-center lg:my-16 my-8">
-                <p class="text-sm text-gray-500 mb-3">Select a seat , provide your name and phone number(11 digit) to confirm</p>
-                <button class="bg-[#1DD100] px-16 py-4 m-auto disabled:opacity-30 rounded-xl text-white" disabled id = "confirmation" data-modal-target="popup-modal" data-modal-toggle="popup-modal" >Confirm</button>
+            <div class=" text-center lg:my-16 my-8 ">
+                <p class="text-sm text-gray-500">Select a seat , provide your name and phone number(11 digit) to <span class="font-bold text-lg text-green-500">Confirm</span></p>
+                <button class="bg-[#1DD100] mt-8 px-16 py-4 m-auto disabled:opacity-30 rounded-xl text-white" disabled id = "confirmation" data-modal-target="popup-modal" data-modal-toggle="popup-modal" >Confirm</button>
             </div>
         </div>
     </div>
