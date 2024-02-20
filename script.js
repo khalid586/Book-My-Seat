@@ -176,6 +176,7 @@ document.getElementById('coupon-btn').addEventListener('click',() =>{
             Discount.innerText = `You have got a discount of ${discount} Taka`;
             Discount.classList.add('text-[#1DD100]','font-semibold','text-xl');
             document.getElementById('coupon').appendChild(Discount);
+            document.getElementById('coupon').classList.remove('hidden');
             
             document.getElementById('Coupon-container').classList.add('hidden');
             Applied = true;
