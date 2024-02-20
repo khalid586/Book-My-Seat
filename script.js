@@ -6,6 +6,8 @@ let confirmed = false, grandTotal = 0;
 
 document.getElementById('confirmation').addEventListener('click', () => {
     confirmed = true;
+    document.getElementById('coupon-btn').setAttribute('disabled','true');
+    document.getElementById('confirmation').setAttribute('disabled','true');
 })
 
 allSeats.forEach(seats =>
