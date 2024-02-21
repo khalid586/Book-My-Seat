@@ -160,7 +160,20 @@ allSeats.forEach(seats =>
 
 document.getElementById('inputfield').addEventListener('keyup',(event) =>{
     coupon = event.target.value;
-    console.log(coupon);
+
+    if(coupon == 'NEW15'){
+        document.getElementById('new15').classList.add('text-green-500');
+        document.getElementById('new15').classList.remove('text-gray-300');
+    }
+    else if(coupon == 'Couple 20'){
+        document.getElementById('couple20').classList.add('text-green-500');
+    }
+    else{
+        document.getElementById('new15').classList.add('text-gray-300');
+        document.getElementById('new15').classList.remove('text-green-500');
+        document.getElementById('couple20').classList.add('text-gray-300');
+        document.getElementById('couple20').classList.remove('text-green-500');
+    }
 })
 
 document.getElementById('coupon-btn').addEventListener('click',() =>{
