@@ -281,13 +281,12 @@
 
             <div class="border-b-8 border-l-4  border-blue-500 p-8 pb-16 shadow-xl rounded-xl mt-16">
                 <p class="text-center font-extrabold text-3xl">Passenger Information</p>
-                <p class="font-bold text-xl mt-12 ">Passenger Name*</p>
-                    <input class="rounded-xl mt-2 w-full font-bold" type="text" id = "passenger_name" placeholder="Enter your name">
-                <p class="font-bold text-xl mt-10">Passenger Phone*</p>
+                <p class="font-bold text-xl mt-12 ">Passenger Name* <span class="font-medium text-gray-500 text-xs">(Max 25 characters)</span></p>
+                    <input maxlength="25" class="rounded-xl mt-2 w-full font-bold" type="text" id = "passenger_name" placeholder="Enter your name ">
+                    <p class="mt-4">Thanks <span id = "name_text" class="font-bold text-green-500"></span> for choosing us</p>
+                <p class="font-bold text-xl mt-8">Passenger Phone*</p>
                     <p id = "valid_number" class="h-4 text-xs mb-2"></p>
                     <input class="rounded-xl w-full font-bold" type="number" id = "passenger_phone" placeholder="Enter your phone number">
-
-                <p class="mt-8">Thanks <span id = "name_text" class="font-bold text-green-500"></span> for choosing us</p>
             </div>
             
             <div class=" text-center lg:my-16 my-8 ">
