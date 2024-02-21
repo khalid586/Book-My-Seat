@@ -26,9 +26,13 @@ function check(){
     if(count && !confirmed){
         document.getElementById('seat_done').classList.add('text-green-500');
         document.getElementById('seat_done').classList.remove('text-red-500');
+        document.getElementById('seat_done1').classList.add('text-green-500');
+        document.getElementById('seat_done1').classList.remove('text-gray-300');
     }else{
         document.getElementById('seat_done').classList.remove('text-green-500');
         document.getElementById('seat_done').classList.add('text-red-500');
+        document.getElementById('seat_done1').classList.remove('text-green-500');
+        document.getElementById('seat_done1').classList.add('text-gray-300');
     }
 
     if(name.length && phone.length == 11 && count && !confirmed){
