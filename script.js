@@ -44,8 +44,14 @@ function check(){
 
 document.getElementById('passenger_name').addEventListener('input',(event)=>{
     name = event.target.value;
+    if(name.length < 1){
+        document.getElementById('char_left').innerText = '';
+    }
+    else{
+        document.getElementById('char_left').innerText = ` ${ 25 - name.length} characters left`;
+    }    
+    
     check();
-
     if(name.length > 25){
         return;
     }
