@@ -45,6 +45,10 @@ function check(){
 document.getElementById('passenger_name').addEventListener('input',(event)=>{
     name = event.target.value;
     check();
+
+    if(name.length > 25){
+        return;
+    }
     document.getElementById('name_text').innerText = name;
 })
 document.getElementById('passenger_phone').addEventListener('input',(event)=>{
