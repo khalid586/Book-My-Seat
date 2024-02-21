@@ -27,3 +27,5 @@ The passenger has to provide his/her name and an 11 digit phone number in order 
 
 ## Confirmation
 Once the passenger has provided his/her informations and booked at least one seat he/she can confirm the booking. After confirmation he can't change his/her preference.
+
+![](demo/confirmation.gif)
