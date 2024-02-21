@@ -47,7 +47,7 @@ document.getElementById('passenger_name').addEventListener('input',(event)=>{
     if(name.length < 1){
         document.getElementById('char_left').innerText = '';
     }
-    else{
+    else if(name.length < 26){
         document.getElementById('char_left').innerText = ` ${ 25 - name.length} characters left`;
     }    
     
