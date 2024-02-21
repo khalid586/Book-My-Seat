@@ -1,4 +1,4 @@
-<img src = "demo/Overview.gif" width = "40%" height = "20%">
+<img src = "demo/Overview.gif" width = "100%" height = "50%">
 <br>
 
 # Book My Seat
