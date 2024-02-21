@@ -38,12 +38,12 @@ function check(){
     }
 }
 
-document.getElementById('passenger_name').addEventListener('keyup',(event)=>{
+document.getElementById('passenger_name').addEventListener('input',(event)=>{
     name = event.target.value;
     check();
     document.getElementById('name_text').innerText = name;
 })
-document.getElementById('passenger_phone').addEventListener('keyup',(event)=>{
+document.getElementById('passenger_phone').addEventListener('input',(event)=>{
     phone = event.target.value;
 
     const digit =  document.getElementById('valid_number');
@@ -158,7 +158,7 @@ allSeats.forEach(seats =>
     })
 )
 
-document.getElementById('inputfield').addEventListener('keyup',(event) =>{
+document.getElementById('inputfield').addEventListener('input',(event) =>{
     coupon = event.target.value;
 
     if(coupon == 'NEW15'){
