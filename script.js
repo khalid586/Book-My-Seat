@@ -2,7 +2,7 @@ let count = 0 , remaining = 40 , total = 0 , Applied = false , coupon = '';
 const allSeats = document.querySelectorAll('.seats');
 
 
-let confirmed = false, grandTotal = 0 , valid_phone = true;
+let confirmed = false, grandTotal = 0 , valid_phone = false;
 let name = '' , phone = '1' ;
 
 
