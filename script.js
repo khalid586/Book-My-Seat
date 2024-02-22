@@ -2,26 +2,55 @@ let count = 0 , remaining = 40 , total = 0 , Applied = false , coupon = '';
 const allSeats = document.querySelectorAll('.seats');
 
 
-let confirmed = false, grandTotal = 0;
-let name = '' , phone = '1';
+let confirmed = false, grandTotal = 0 , valid_phone = true;
+let name = '' , phone = '1' ;
 
 
 
 function check(){
-    if(name.length  && !confirmed){
+    if(name.length > 3  && !confirmed){
+        document.getElementById('minName').classList.toggle('text-red-500',false);
+        document.getElementById('minName').classList.toggle('text-green-500',true);
         document.getElementById('name_done').classList.add('text-green-500');
         document.getElementById('name_done').classList.remove('text-red-500');
     }else{
+        document.getElementById('minName').classList.toggle('text-red-500',true);
+        document.getElementById('minName').classList.toggle('text-green-500',false);
         document.getElementById('name_done').classList.remove('text-green-500');
         document.getElementById('name_done').classList.add('text-red-500');
     }
 
-    if(phone.length == 11 && !confirmed){
-        document.getElementById('phone_done').classList.add('text-green-500');
-        document.getElementById('phone_done').classList.remove('text-red-500');
+    if((phone.length == 11 || valid_phone) && !confirmed){
+        if(valid_phone){
+            document.getElementById('Valid_phone').classList.toggle('text-red-500',false);
+            document.getElementById('Valid_phone').classList.toggle('text-green-500',true);
+        }else{
+            document.getElementById('Valid_phone').classList.toggle('text-red-500',true);
+            document.getElementById('Valid_phone').classList.toggle('text-green-500',false);
+        }
+        if(phone.length == 11){
+            document.getElementById('digit11').classList.toggle('text-red-500',false);
+            document.getElementById('digit11').classList.toggle('text-green-500',true);
+        }else{
+            document.getElementById('digit11').classList.toggle('text-red-500',true);
+            document.getElementById('digit11').classList.toggle('text-green-500',false);
+        }
+        
+        if(phone.length == 11 && valid_phone){            
+            document.getElementById('phone_done').classList.toggle('text-green-500',true);
+            document.getElementById('phone_done').classList.toggle('text-red-500',false);
+        }
+        else{
+            document.getElementById('phone_done').classList.toggle('text-green-500',false);
+            document.getElementById('phone_done').classList.toggle('text-red-500',true);
+        }
     }else{
+        document.getElementById('Valid_phone').classList.toggle('text-red-500',true);
         document.getElementById('phone_done').classList.remove('text-green-500');
+        document.getElementById('Valid_phone').classList.toggle('text-green-500',false);
+        document.getElementById('digit11').classList.toggle('text-red-500',true);
         document.getElementById('phone_done').classList.add('text-red-500');
+        document.getElementById('digit11').classList.toggle('text-green-500',false);
     }
     if(count && !confirmed){
         document.getElementById('seat_done').classList.add('text-green-500');
@@ -35,7 +64,7 @@ function check(){
         document.getElementById('seat_done1').classList.add('text-gray-300');
     }
 
-    if(name.length && phone.length == 11 && count && !confirmed){
+    if(name.length && phone.length == 11 && valid_phone && count && !confirmed){
         document.getElementById('confirmation').removeAttribute('disabled');
     }else{
         document.getElementById('confirmation').setAttribute('disabled','true');
@@ -64,11 +93,28 @@ document.getElementById('passenger_phone').addEventListener('input',(event)=>{
     
     if(phone.length){
         digit.innerText = `${phone.length} digit`;
+        if(phone[0] == '0'){
+            valid_phone = true;
+        }
+        if(phone[0] != '0'){
+            digit.innerText += ' (Phone number must start with 0)';
+            valid_phone = false;
+        }
+        else if(phone.length > 1){
+            if(phone[1] != '1'){
+                digit.innerText += ' (Phone number must start with 01)';
+                valid_phone = false;
+            }
+            else{
+                valid_phone = true;
+            }
+        }
     }else{
+        valid_phone = false;
         digit.innerText = '';
     }
     
-    if(phone.length == 11){
+    if(phone.length == 11 && valid_phone){
         document.getElementById('passenger_phone').classList.remove('text-red-500');
         document.getElementById('passenger_phone').classList.add('text-green-500');
     }
@@ -77,10 +123,6 @@ document.getElementById('passenger_phone').addEventListener('input',(event)=>{
         document.getElementById('passenger_phone').classList.remove('text-green-500');
     }
     check();
-
-    // if(typeof phone != 'number'){
-    //     alert('Provide a valid phone number!')
-    // }
 })
 
 
