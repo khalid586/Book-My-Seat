@@ -64,7 +64,7 @@ function check(){
         document.getElementById('seat_done1').classList.add('text-gray-300');
     }
 
-    if(name.length && phone.length == 11 && valid_phone && count && !confirmed){
+    if(name.length > 3 && phone.length == 11 && valid_phone && count && !confirmed){
         document.getElementById('confirmation').removeAttribute('disabled');
     }else{
         document.getElementById('confirmation').setAttribute('disabled','true');
