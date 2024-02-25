@@ -55,13 +55,17 @@ function check(){
     if(count && !confirmed){
         document.getElementById('seat_done').classList.add('text-green-500');
         document.getElementById('seat_done').classList.remove('text-red-500');
-        document.getElementById('seat_done1').classList.add('text-green-500');
-        document.getElementById('seat_done1').classList.remove('text-gray-300');
+        if(count > 3){
+            document.getElementById('seat_done1').classList.add('text-green-500');
+            document.getElementById('seat_done1').classList.remove('text-gray-300');
+        }
+        else{
+            document.getElementById('seat_done1').classList.remove('text-green-500');
+            document.getElementById('seat_done1').classList.add('text-gray-300');
+        }
     }else{
         document.getElementById('seat_done').classList.remove('text-green-500');
         document.getElementById('seat_done').classList.add('text-red-500');
-        document.getElementById('seat_done1').classList.remove('text-green-500');
-        document.getElementById('seat_done1').classList.add('text-gray-300');
     }
 
     if(name.length > 3 && phone.length == 11 && valid_phone && count && !confirmed){
@@ -161,9 +165,12 @@ allSeats.forEach(seats =>
                 console.log(count);
                 document.getElementById('seatTaken').innerText = count;
 
-                document.getElementById('coupon-btn').removeAttribute('disabled');
-                // document.getElementById('confirmation').removeAttribute('disabled');
-                
+                if(count > 3){
+                    document.getElementById('coupon-btn').removeAttribute('disabled');
+                }
+                else{
+                    document.getElementById('coupon-btn').setAttribute('disabled','true');
+                }                
                 check();
 
                 const newSeat = document.createElement('div');
@@ -171,15 +178,15 @@ allSeats.forEach(seats =>
                 newSeat.setAttribute('id',`${seats.id}-info`) ;
                 newSeat.innerHTML = `<p>${seat.id}</p> <p>Economy</p> <p>550</p>`;
                 document.getElementById('selected').appendChild(newSeat);
-
+                
                 let seatsLeft = parseInt(document.getElementById('remaining').innerText);
                 seatsLeft --;
                 document.getElementById('remaining').innerText = seatsLeft;
-
+                
                 total += 550;
                 document.getElementById('total').innerText = total;
                 grandTotal += 550;
-
+                
                 document.getElementById('grandTotal').innerText = grandTotal;
             }
             else{
@@ -193,28 +200,26 @@ allSeats.forEach(seats =>
             --count;
             document.getElementById('seatTaken').innerText = count;
 
-            if(count == 0){
-                document.getElementById('coupon-btn').setAttribute('disabled','true');
-                document.getElementById('confirmation').setAttribute('disabled','true');
-            }
+            document.getElementById('coupon-btn').setAttribute('disabled','true');
+            
             check();
-
+            
             let seatsLeft = parseInt(document.getElementById('remaining').innerText);
             seatsLeft++;
             document.getElementById('remaining').innerText = seatsLeft;
-
+            
             total -= 550;
             document.getElementById('total').innerText = total;
             grandTotal -= 550;
-
+            
             document.getElementById('grandTotal').innerText = grandTotal;
-        
+            
             document.getElementById(`${seat.id}-info`).remove();
         }
     })
-)
-
-document.getElementById('inputfield').addEventListener('input',(event) =>{
+    )
+    
+    document.getElementById('inputfield').addEventListener('input',(event) =>{
     coupon = event.target.value;
 
     if(coupon == 'NEW15'){
