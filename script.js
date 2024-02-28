@@ -20,6 +20,13 @@ function check(){
         document.getElementById('name_done').classList.add('text-red-500');
     }
 
+    if(count > 3 && (coupon == "NEW15" || coupon == "Couple 20")){
+        document.getElementById('coupon-btn').removeAttribute('disabled');
+    }
+    else{
+        document.getElementById('coupon-btn').setAttribute('disabled','true');
+    } 
+
     if((phone.length == 11 || valid_phone) && !confirmed){
         if(valid_phone){
             document.getElementById('Valid_phone').classList.toggle('text-red-500',false);
@@ -164,13 +171,7 @@ allSeats.forEach(seats =>
                 ++count;
                 console.log(count);
                 document.getElementById('seatTaken').innerText = count;
-
-                if(count > 3){
-                    document.getElementById('coupon-btn').removeAttribute('disabled');
-                }
-                else{
-                    document.getElementById('coupon-btn').setAttribute('disabled','true');
-                }                
+               
                 check();
 
                 const newSeat = document.createElement('div');
@@ -221,6 +222,7 @@ allSeats.forEach(seats =>
     
     document.getElementById('inputfield').addEventListener('input',(event) =>{
     coupon = event.target.value;
+    check();
 
     if(coupon == 'NEW15'){
         document.getElementById('new15').classList.add('text-green-500');
